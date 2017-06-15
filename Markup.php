@@ -44,7 +44,7 @@ class Markup implements ArrayAccess
      * Constructor
      * @param mixed $tag
      * @param Markup $top
-     * @return Markup instance
+     * @return static instance
      */
     protected function __construct($tag, $top = null)
     {
@@ -62,7 +62,7 @@ class Markup implements ArrayAccess
      * Builds markup from static context
      * @param string $tag The tag name
      * @param array  $content The content of the current tag, first argument can be an array containing the attributes
-     * @return Markup
+     * @return static
      */
     public static function __callStatic($tag, $content)
     {
@@ -75,7 +75,7 @@ class Markup implements ArrayAccess
      * Add a children to the current element
      * @param string $tag The name of the tag
      * @param array  $content The content of the current tag, first argument can be an array containing the attributes
-     * @return Markup instance
+     * @return static instance
      */
     public function __call($tag, $content)
     {
@@ -87,7 +87,7 @@ class Markup implements ArrayAccess
 
     /**
      * Alias for getParent()
-     * @return Markup
+     * @return static
      */
     public function __invoke()
     {
@@ -97,7 +97,7 @@ class Markup implements ArrayAccess
     /**
      * Create a new Markup
      * @param string $tag
-     * @return Markup instance
+     * @return static instance
      */
     public static function createElement($tag = '')
     {
@@ -109,7 +109,7 @@ class Markup implements ArrayAccess
      *
      * Add element at an existing Markup
      * @param Markup|string $tag
-     * @return Markup instance
+     * @return static instance
      */
     public function addElement($tag = '')
     {
@@ -125,7 +125,7 @@ class Markup implements ArrayAccess
      * (Re)Define an attribute or many attributes
      * @param string|array $attribute
      * @param string $value
-     * @return Markup instance
+     * @return static instance
      */
     public function set($attribute, $value = null)
     {
@@ -143,7 +143,7 @@ class Markup implements ArrayAccess
      * alias to method "set"
      * @param string|array $attribute
      * @param string $value
-     * @return Markup instance
+     * @return static instance
      */
     public function attr($attribute, $value = null)
     {
@@ -200,7 +200,7 @@ class Markup implements ArrayAccess
      *
      * Define text content
      * @param string $value
-     * @return Markup instance
+     * @return static instance
      */
     public function text($value)
     {
@@ -210,7 +210,7 @@ class Markup implements ArrayAccess
 
     /**
      * Returns the top element
-     * @return Markup
+     * @return static
      */
     public function getTop()
     {
@@ -237,7 +237,7 @@ class Markup implements ArrayAccess
     /**
      * Return previous element or itself
 	 *
-     * @return Markup instance
+     * @return static instance
      */
     public function getPrevious()
     {
@@ -258,7 +258,7 @@ class Markup implements ArrayAccess
     }
 
     /**
-     * @return Markup last child of parent of current object
+     * @return static last child of parent of current object
      */
     public function getNext()
     {
@@ -279,7 +279,7 @@ class Markup implements ArrayAccess
     }
 
     /**
-     * @return Markup last child of parent of current object
+     * @return static last child of parent of current object
      */
     public function getLast()
     {
@@ -287,7 +287,7 @@ class Markup implements ArrayAccess
     }
 
     /**
-     * @return Markup return parent or null
+     * @return static return parent or null
      */
     public function remove()
     {
